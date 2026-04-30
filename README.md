@@ -7,9 +7,9 @@ This project uses a custom-trained YOLO model to detect plastic boxes in real-ti
 ## 📌 Features
 
 * Real-time object detection using webcam
-* Custom YOLO model (`best (2).pt`)
+* Custom-trained YOLO model
 * Adjustable confidence and IoU thresholds
-* Simple and lightweight Python implementation
+* Simple and easy-to-run Python script
 
 ---
 
@@ -23,10 +23,15 @@ This project uses a custom-trained YOLO model to detect plastic boxes in real-ti
 
 ## 📂 Project Structure
 
-```
+```id="e1x3k9"
 plasticbox_project/
 │── detect_webcam.py
 │── best (2).pt
+│── dataset/
+│   ├── images/
+│   ├── labels/
+│   ├── data.yaml
+│── output.png
 │── README.md
 ```
 
@@ -36,7 +41,7 @@ plasticbox_project/
 
 ### 1. Clone the repository
 
-```
+```id="u5yx3g"
 git clone https://github.com/sayliakunkar/plastic-box-detection.git
 cd plastic-box-detection
 ```
@@ -45,15 +50,15 @@ cd plastic-box-detection
 
 ### 2. Install dependencies
 
-```
+```id="r3v2y8"
 pip install ultralytics opencv-python
 ```
 
 ---
 
-### 3. Run the script
+### 3. Run the project
 
-```
+```id="q4z8kp"
 python detect_webcam.py
 ```
 
@@ -63,9 +68,9 @@ Press **Q** to exit the webcam window.
 
 ## ⚙️ Configuration
 
-Inside `detect_webcam.py`, you can adjust:
+You can adjust detection settings in `detect_webcam.py`:
 
-```python
+```python id="p9k2jd"
 results = model(frame, conf=0.7, iou=0.5)
 ```
 
@@ -74,19 +79,56 @@ results = model(frame, conf=0.7, iou=0.5)
 
 ---
 
+## 📊 Dataset
+
+This project uses a custom-labeled dataset for plastic box detection.
+
+### 📂 Structure
+
+```id="s2k8dh"
+dataset/
+│── images/
+│── labels/
+│── data.yaml
+```
+
+### 🏷️ Label Format (YOLO)
+
+Each label file contains:
+
+```id="m8x1qp"
+class_id x_center y_center width height
+```
+
+### 📌 Classes
+
+* 0 → Plastic Box
+
+---
+
+## 📸 Output
+
+Example detection result:
+
+```id="f8k3lp"
+![Detection Output](output.png)
+```
+
+---
+
 ## ⚠️ Important Notes
 
 * Ensure `best (2).pt` is in the same directory as the script
-* If the model file is large (>100MB), GitHub may not allow upload
-* In that case, use Git LFS or external storage
+* If dataset or model is large (>100MB), use Git LFS or external storage
+* Update file paths if running on a different system
 
 ---
 
 ## 🎯 Future Improvements
 
-* Add support for video file input
-* Deploy as a web app
-* Improve detection accuracy with more training data
+* Add video file detection
+* Deploy as a web application
+* Improve model accuracy with more data
 
 ---
 
@@ -96,6 +138,6 @@ results = model(frame, conf=0.7, iou=0.5)
 
 ---
 
-## ⭐ If you like this project
+## ⭐ Support
 
-Give it a star on GitHub!
+If you like this project, consider giving it a star ⭐ on GitHub!
